@@ -1,0 +1,21 @@
+body {
+  margin-left: 50px;
+}
+form {
+  margin-left: 80px;
+}
+button {
+  margin-left: 80px;
+}
+p {
+  margin-left: 80px;
+}
+#failed {
+	color: red;
+}
+#passed {
+	color: green;
+}
+#onHold {
+	color: yellow;	
+}

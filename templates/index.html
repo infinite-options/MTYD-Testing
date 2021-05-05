@@ -1,0 +1,198 @@
+<!doctype html>
+
+<head><title>M4ME Endpoint testing</title> 
+    <link href="/static/styles.css" rel="stylesheet" type="text/css">
+    <meta charset=utf-8> </head>
+    <body>
+        <h1 >M4ME Endpoint testing <span id="datetime"></span></h1>
+		<h3 id ="onHold"> 1. Test Purchase</h3>
+		<p>Enter the customer UID</p>
+		<form action="{{ url_for('testPurchase') }}" method="post">
+            <input type="text" name="customerUID">
+            <input type="submit" value = "Test Purchase">
+        </form>	<br>
+		<h3 id = "passed"> 2. Test meals selected</h3>
+		<p>Enter the customer UID</p>
+		<form action="{{ url_for('MealsSelection') }}" method="post">
+            <input type="text" name="customerID">
+			<p>Enter the purchase ID</p>
+			<input type="text" name="purchaseID"><br><br>
+			<p>Enter menu date</p>
+			<input type="text" name="menuDate">
+            <input type="submit" value = "Test meals selected specific">
+        </form>	<br>
+		<h3 id = "passed"> 3. Test Menu</h3>
+        <button> <a href="/testMenu/">Test Menu</a></button><br><br>
+		<h3 id = "passed"> 4. Test Meal</h3> 
+		<button> <a href="/testMeal/">Test Meal</a></button><br><br>
+		<h3 id = "failed"> 5. Test Meal Creation (GET doesn't work. POST does.)</h3> 
+        <button> <a href="/testMealCreation/">Test Meal Creation</a></button><br><br>		
+		<h3 id = "onHold"> 6. Test Payments</h3>
+        <button> <a href="/testPayments/">Test Payments</a></button><br><br>
+		<h3 id = "failed"> 8. Test measure unit (GET, POST, PUT work. DELETE fails)</h3>
+		<button> <a href="/testMeasureUnit/">Test Measure unit</a></button><br><br>
+		<h3> 9. Test coupons</h3>
+        <button> <a href="/testCoupons/">Test Coupons</a></button><br><br>		
+		<h3> 10. Test Ingredients post</h3>
+        <button> <a href="/testIngredientPost/">Test Ingredient Post</a></button><br><br>
+		<h3> 11. Test accounts</h3>
+		<form action="{{ url_for('account') }}" method="post">
+		    <p>Enter account ID</p>
+            <input type="text" name="accountID">
+            <input type="submit" value = "Test accounts">
+        </form>	<br>
+		<h3> 12. Test account login, change and reset password</h3>
+		<button> <a href="/AccountsLoginChangeResetPassword/">Test Account Login, Change password</a></button><br><br>
+		<h3> 14. Test payments customer LPLP</h3>
+		<button> <a href="/testPayments_CustomerLPLP/">Test payments_customerLPLP</a></button><br><br>
+		<h3> 15. Test next billing date</h3>
+        <button> <a href="/getNextBillingDate/">Test Next billing date</a></button><br><br>
+		<h3> 16. Test accounts salts</h3>
+        <button> <a href="/testAccountSalts/">Test Account Salts</a></button><br><br> 
+		<h3> 17. Test checkout post</h3>
+        <button> <a href="/checkout/">Test Checkout Post</a></button><br><br> 
+		<h3 id = "failed"> 18. Test plans (POST is not working. Does it go to subscription items?)</h3>
+		<button> <a href="/testPlans/">Test plans</a></button><br><br>
+		<h3> 19. Test notification</h3>
+        <button> <a href="/testNotifications/">Test Notifications</a></button><br><br>
+		<h3> 20. Test create menu</h3>
+        <button> <a href="/testCreateMenu/">Test Create menu</a></button><br><br>
+		<h3> 21. Test edit meal recipe</h3>
+        <button> <a href="/testEditMealRecipe/">Test Edit Meal recipe</a></button><br><br>		
+		<h3> 22. Test orders</h3>
+        <button> <a href="/testOrders/">Test orders</a></button><br><br>
+		<h3> 23. Test revenue</h3>
+        <button> <a href="/testRevenue/">Test revenue</a></button><br><br>
+		<h3> 24. Test customer</h3>
+        <button> <a href="/testCustomer/">Test customer</a></button><br><br>
+		<h3> 25. Test coupons details post</h3>
+        <button> <a href="/testCouponsDetailsPost/">Test coupons details post</a></button><br><br>
+		<h3> 26. Test add item</h3>
+		<button> <a href="/testaddItem/">Test add item</a></button><br><br>
+		<h3> 27. Test business details update</h3>
+		<button> <a href="/testBusinessDetailsUpdate/">Test Business Details Update</a></button><br><br>
+		<h3> 28. Test order action delete</h3>
+			<p>Enter the purchase ID</p>
+			<form action="{{ url_for('order_actions') }}" method="post">
+				<input type="text" name="purchaseID"><br><br>
+				<input type="submit" value = "Test Order actions">
+			</form>	<br>		
+		<h3> 29. Test admin report</h3>
+			<p>Enter the business ID</p>
+			<form action="{{ url_for('admin_report') }}" method="post">
+				<input type="text" name="businessID"><br><br>
+				<input type="submit" value = "Test admin report">
+			</form>	<br>		
+		<h3> 30. Test send notification business</h3>
+		<button> <a href="/testSendNotificationBusiness/">Test send notification business</a></button><br><br>
+		<h3> 31. Test get registration from tag</h3>
+		<button> <a href="/testGet_Registrations_From_Tag/">Test Get Registrations From Tag</a></button><br><br>
+		<h3> 32. Test update registration with GUID Androida</h3>
+		<button> <a href="/updateRegistrationwithGUIDAndroid/">update Registration with GUID Androida</a></button><br><br>
+		<h3> 33. Test get tags with GUIDiOS</h3>
+        <button> <a href="/getTagsWithGUIDiOS/">get Tags With GUIDiOS</a></button><br><br>
+		<h3> 34. Test email verification</h3>
+        <button> <a href="/emailVerification/">email Verification</a></button><br><br>
+		<h3> 35. Test PID history</h3>
+			<p>Enter the purchase ID</p>
+			<form action="{{ url_for('pid_history') }}" method="post">
+				<input type="text" name="purchaseID"><br><br>
+				<input type="submit" value = "Test pid history">
+			</form>	<br>		
+		<h3> 36. Test upcoming menu</h3>
+        <button> <a href="/upcomingMenuDates/">upcoming Menu Dates</a></button><br><br>
+		<h3> 37. Test refund calculator</h3>
+			<p>Enter the purchase ID</p>
+			<form action="{{ url_for('refundCalculator') }}" method="post">
+				<input type="text" name="purchaseID"><br><br>
+				<input type="submit" value = "Test refund calculator">
+			</form>	<br>
+		<h3> 38. Test report order customer pivot details order</h3>
+		<button> <a href="/reportOrderCustomerPivotDetail_order/">report Order Customer Pivot Detail order</a></button><br><br>
+		<h3> 39. Test report order customer pivot details customer</h3>
+		<button> <a href="/reportOrderCustomerPivotDetail_customer/">report Order Customer Pivot Detail customer</a></button><br><br>
+		<h3> 40. Test report order customer pivot details pivot</h3>
+		<button> <a href="/reportOrderCustomerPivotDetail_pivot/">report Order Customer Pivot Detail pivot</a></button><br><br>
+		<h3> 41. Test order by items</h3>
+		<button> <a href="/orderByItems/">order By Items</a></button><br><br>
+		<h3> 42. Test order by purchaseID</h3>
+		<button> <a href="/orderByPurchaseId/">order By PurchaseId</a></button><br><br>
+		<h3> 43. Test stripe payment key checker</h3>
+		<button> <a href="/stripePaymentKeyChecker/">stripe Payment Key Checker</a></button><br><br>
+		<h3> 44. Test paypal payment key checker</h3>
+		<button> <a href="/paypalPaymentKeyChecker/">paypal Payment Key Checker</a></button><br><br>
+		<h3> 45. Test get specific recipe with ingredients</h3>
+		<button> <a href="/getSpecificRecipeWithIngredients/">get Specific Recipe With Ingredients</a></button><br><br>
+		<h3> 46. Test add new ingredients recipe</h3>
+		<button> <a href="/addNewIngredientRecipe/">add New Ingredient Recipe</a></button><br><br>
+		<h3> 47. Test delete recipe specific</h3>
+		<button> <a href="/deleteRecipeSpecific/">delete Recipe Specific</a></button><br><br>
+		<h3> 48. Test edit Meal Plan</h3>
+		<button> <a href="/editMealPlan/">edit Meal Plan</a></button><br><br>
+		<h3> 49. Test Fee Tax</h3>
+		<button> <a href="/FeeTax/">Test Fee Tax</a></button><br><br>
+		<h3> 50. Test Zones</h3>
+		<button> <a href="/Zones/">Test Zones</a></button><br><br>
+		<h3> 51. Test get Customer Info</h3>
+		<button> <a href="/getCustomerInfo/">get Customer Info</a></button><br><br>
+		<h3> 52. Test get Payment Info History</h3>
+			<p>Enter the purchase ID</p>
+			<form action="{{ url_for('getPaymentInfoHistory') }}" method="post">
+				<input type="text" name="purchaseID"><br><br>
+				<input type="submit" value = "Test get Payment Info History">
+			</form>	<br>
+		<h3> 53. Test order By PurchaseID with PID</h3>
+		    <p>Enter the purchase ID</p>
+			<form action="{{ url_for('orderByPurchaseIDwithPID') }}" method="post">
+				<input type="text" name="purchaseID"><br>
+				<p>Enter the date (in the YYYY-MM-DD HH-MM-SS format)</p>
+				<input type="text" name="inputDate"><br><br>
+				<input type="submit" value = "Test order By PurchaseID with PID">
+			</form>	<br>
+		<h3> 54. Test order By PurchaseID with PID and Date</h3>
+		    <p>Enter the purchase ID</p>
+			<form action="{{ url_for('orderByPurchaseIDwithPIDandDate') }}" method="post">
+				<input type="text" name="purchaseID"><br>
+				<p>Enter the date (in the YYYY-MM-DD HH-MM-SS format)</p>
+				<input type="text" name="inputDate"><br><br>
+				<input type="submit" value = "Test order By PurchaseID with PID and Date">
+			</form>	<br>		
+		<h3> 55. Test order By Business Specifics</h3>
+			<p>Enter the business UID</p>
+			<form action="{{ url_for('orderByBusinessSpecifics') }}" method="post">
+				<input type="text" name="businessID"><br><br>
+				<input type="submit" value = "Test order By Business Specifics">
+			</form>	<br>
+		<h3> 56. Test order By Items Total Items</h3>
+		<button> <a href="/orderByItemsTotalItems/">order By Items Total Items</a></button><br><br>
+		<h3> 57. Test categorical Options</h3>
+			<p>Enter the latitude</p>
+			<form action="{{ url_for('categoricalOptions') }}" method="post">
+				<input type="text" name="latitude"><br><br>
+				<p> Enter the longitude</p>
+				<input type="text" name="longitude"><br><br>
+				<input type="submit" value = "Test categorical Options">
+			</form>	<br>		
+		<h3> 58. Test payment Info History Fixed</h3>
+		<button> <a href="/paymentInfoHistoryFixed/">payment Info History Fixed</a></button><br><br>
+		<h3> 59. Test get Latest Purchase Payments With Refund</h3>
+			<p>Enter the customer ID</p>
+			<form action="{{ url_for('getLatestPurchasePaymentsWithRefund') }}" method="post">
+				<input type="text" name="customerID"><br><br>
+				<input type="submit" value = "Test get Latest Purchase Payments With Refund">
+			</form>	<br>
+		<h3> 60. Test discount Percentage</h3>
+		<button> <a href="/discountPercentage/">discount Percentage</a></button><br><br>
+		<h3> 61. Test add surprise</h3>
+		<button> <a href="/add_surprise/">add surprise</a></button><br><br>
+		<h3> 62. TestCalculator post</h3>
+		<button> <a href="/testCal_post/">test Calculator post</a></button><br><br>
+		<h3> 63. Test Delivery info</h3>
+		<p>Enter the purchase ID</p>
+		<form action="{{ url_for('getDeliveryInfo') }}" method="post">
+            <input type="text" name="purchaseID">
+            <input type="submit" value = "Test delivery info">
+        </form>	<br>		
+
+        <script src="/static/scripts.js" charset="utf-8"></script>
+    </body>
