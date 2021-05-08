@@ -1170,7 +1170,7 @@ def MealsSelection():
        outputString += str(res)
        outputString += "<br><br><br>"
        outputString += "The next meal selected is <br>"
-     items = item[]  
+    #  items = item[]  
      purchaseID = res['purchaseID']
      menuDate = request.form['menuDate']
      outputString, returnCode = checkMessageInResponseBody(outputString, response_body, "Meals selected", "GET", "Meals selected", returnCode)
