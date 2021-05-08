@@ -371,7 +371,7 @@ class testMenu(Resource):
         items = {}
         try:
             conn = connect()
-            data = request.get_json(force=True)
+            # data = request.get_json(force=True)
             # print to Received data to Terminal
             # print("Received:", data)
 
