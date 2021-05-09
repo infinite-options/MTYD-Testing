@@ -10,6 +10,10 @@
 		Black: These endpoints don't fit into the testing strategy.<br/>
 		The testing strategy is to create a record, edit or update the record and delete the record.<br/>
 		These endpoints don't necessarily have a corresponding DELETE for PUT/POST,<br/> or a corresponding GET for PUT/POST.</p>
+        <p>Note: Functions used are addHeading, addSubHeading, checkMessageInResponseBody, testGET, addFooter, addCssToOutputString.<br/>
+		Every set of endpoints corresponding to an action (eg. meal, menu, account) is a def.<br/>
+		Each def should return the outputString.<br/>
+		</p>
 		<h3 id ="onHold"> 1. Test Purchase</h3>
 		<p>Enter the customer UID</p>
 		<form action="{{ url_for('testPurchase') }}" method="post">
@@ -78,6 +82,15 @@
 		</p>		
 		<h3 id = "failed"> 6. Test measure unit (GET, POST, PUT work. DELETE fails)</h3>
 		<button> <a href="/testMeasureUnit/">Test Measure unit</a></button><br><br>
+        <p>Endpoints tested:<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+        POST: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+        PUT: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/> 
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+        DELETE: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/measure_unit<br/>
+		</p>
 		<h3 id = "passed"> 7. Test coupons</h3>
         <button> <a href="/testCoupons/">Test Coupons</a></button><br><br>		
 		<p> Endpoints tested:<br/>
@@ -91,6 +104,7 @@
 		</p>
 		<h3> 8. Test Ingredients post</h3>
         <button> <a href="/testIngredientPost/">Test Ingredient Post</a></button><br><br>
+        <p>Current status: There is no DELETE for this endpoint as of now.</p>
 		<h3 id = "passed"> 9. Test accounts</h3>
 		<form action="{{ url_for('account') }}" method="post">
 		    <p>Enter account ID</p>
