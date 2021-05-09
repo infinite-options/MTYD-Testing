@@ -687,8 +687,9 @@ def testMeal():
          outputString += "<br>GET Meals <p id = \"passed\">PASSED</p>"
      except:
          outputString += "<br>GET Meals <p id = \"failed\">FAILED</p>" 
-         returnCode = 0           
-     outputString = addFooter(outputString, returnCode)          
+         returnCode = 0
+     outputString = addFooter(outputString, returnCode)
+     return outputString     
 @app.route('/testMealCreation/')
 def mealCreation():
      outputString = "<br><h2>Testing meal creation<br>"
@@ -1170,7 +1171,7 @@ def MealsSelection():
        outputString += str(res)
        outputString += "<br><br><br>"
        outputString += "The next meal selected is <br>"
-    #  items = item[]  
+     #items = item[]  
      purchaseID = res['purchaseID']
      menuDate = request.form['menuDate']
      outputString, returnCode = checkMessageInResponseBody(outputString, response_body, "Meals selected", "GET", "Meals selected", returnCode)
@@ -1250,12 +1251,13 @@ def MealsSelection():
 
      outputString = addFooter(outputString, returnCode)
      return outputString
-@app.route('/AccountsLoginChangeResetPassword/')
+@app.route('/AccountsLoginChangeResetPassword/', methods = ['POST'])
 def AccountsLoginChangeResetPassword():
      testCaseName = "account"
      outputString = ""
      outputString = addHeading(outputString, testCaseName)
      returnCode = 1
+     enteredEmail = request.form['enteredEmail']
      email = "ana_c_tejada@yahoo.com"
      password = "deca602e1b605f74517252f7af8698f039636c81ded48"
      inputJSON = {
@@ -1285,17 +1287,18 @@ def AccountsLoginChangeResetPassword():
      outputString, returnCode = checkMessageInResponseBody(outputString, response_body, "Wrong Password", "POST", testCaseName, returnCode)
      outputString = addSubHeading(outputString, "GET", "reset password")
      #HTTP error 400, bad request
-     response = requests.get("https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/reset_password?email=f20flier@gmail.com")
+     response = requests.get(f"https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/reset_password?email={enteredEmail}")
      response_body = response.json()
      outputString, returnCode = checkMessageInResponseBody(outputString, response_body, "A temporary password has been sent", "GET", "reset password", returnCode)
      outputString = addFooter(outputString, returnCode)
      return outputString
-@app.route('/getNextBillingDate/')
+@app.route('/getNextBillingDate/', methods = ['POST'])
 def payments_NextBillingDate():
      outputString = "<h2>Testing payments next billing date<br>"
      returnCode = 1
      #Bad request
-     response = requests.get("https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/next_billing_date?customer_uid=100-000001")
+     customerID = request.form['customerID']
+     response = requests.get(f"https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/next_billing_date?customer_uid={customerID}")
      response_body = response.json()
      outputString += "The response JSON is <br>"
      outputString += str(response_body)
@@ -1538,7 +1541,7 @@ def account():
      outputString = addFooter(outputString, returnCode)'''
      outputString = addFooter(outputString, returnCode) 
      return outputString     
-@app.route('/testNotifications/')
+@app.route('/testNotifications/', methods = ['POST'])
 def notifications():
      outputString = "<h2>Testing notification <br>"
      returnCode = 1
@@ -1557,7 +1560,8 @@ def notifications():
          outputString += "<br>POST notifications with group ID FAILED<br>"
          returnCode = 0
      #no input json
-     response = requests.post("https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/payment_info/500-000001")
+     paymentID = request.form['paymentID']
+     response = requests.post(f"https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/payment_info/{paymentID}")
      response_body = response.json()
      try:
          assert "uccess" in response_body["message"]
