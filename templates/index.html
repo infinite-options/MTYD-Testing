@@ -80,6 +80,15 @@
 		<button> <a href="/testMeasureUnit/">Test Measure unit</a></button><br><br>
 		<h3 id = "passed"> 7. Test coupons</h3>
         <button> <a href="/testCoupons/">Test Coupons</a></button><br><br>		
+		<p> Endpoints tested:<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+        POST: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+        PUT: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+        DELETE: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons?coupon_uid={coupon_uid}<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/coupons<br/>
+		</p>
 		<h3> 8. Test Ingredients post</h3>
         <button> <a href="/testIngredientPost/">Test Ingredient Post</a></button><br><br>
 		<h3 id = "passed"> 9. Test accounts</h3>
@@ -88,6 +97,18 @@
             <input type="text" name="accountID">
             <input type="submit" value = "Test accounts">
         </form>	<br>
+		<p>Endpoints tested:<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/Profile/{accountID}<br/>
+        POST: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/createAccount<br/>
+        GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/Profile/{cust_id}<br/>
+		POST: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/createAccount<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/Profile/{cust_id}<br/>
+		PUT: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/UpdateProfile<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/Profile/{cust_id}<br/>
+		DELETE: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/deleteAccount?customer_uid={cust_id}<br/>
+		GET: https://ht56vci4v9.execute-api.us-west-1.amazonaws.com/dev/api/v2/Profile/{cust_id}<br/>
+
+		</p>
 		<h3> 10. Test account login, change and reset password</h3>
 		<form action="{{ url_for('AccountsLoginChangeResetPassword') }}" method="post">
 		    <p>Enter email ID</p>
